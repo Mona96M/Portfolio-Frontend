@@ -20,8 +20,8 @@ function PersonalInfoForm(props) {
                     id='phone'
                     name='phone'
                     required
-                    value={props.linkedin}
-                    onChange={(event) => props.setLinkedin(event.target.value)}
+                    value={props.phone}
+                    onChange={(event) => props.setPhone(event.target.value)}
                 />
                 </div>
                 <div>
