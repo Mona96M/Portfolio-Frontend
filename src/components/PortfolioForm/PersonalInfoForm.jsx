@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PersonalInfoForm() {
+function PersonalInfoForm(props) {
     return (
         <div>
             <form>
@@ -10,6 +10,8 @@ function PersonalInfoForm() {
                     id='full_name'
                     name='full_name'
                     required
+                    value={props.fullName}
+                    onChange={(event) => props.setFullName(event.target.value)}
                 />
                 </div>
                 <div>
@@ -18,6 +20,8 @@ function PersonalInfoForm() {
                     id='phone'
                     name='phone'
                     required
+                    value={props.linkedin}
+                    onChange={(event) => props.setLinkedin(event.target.value)}
                 />
                 </div>
                 <div>
@@ -26,6 +30,8 @@ function PersonalInfoForm() {
                     id='linkedin'
                     name='linkedin'
                     required
+                    value={props.linkedin}
+                    onChange={(event) => props.setLinkedin(event.target.value)}
                 />
                 </div>
                 <div>
@@ -34,6 +40,8 @@ function PersonalInfoForm() {
                     id='bio'
                     name='bio'
                     required
+                    value={props.bio}
+                    onChange={(event) => props.setBio(event.target.value)}
                 />
                 </div>
             </form>
