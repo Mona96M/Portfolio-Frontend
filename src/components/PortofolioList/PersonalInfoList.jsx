@@ -21,7 +21,7 @@ function PersonalInfoList() {
             <ul>
                 {personalInfo.map(personalInf => {
                     return (
-                        <li>
+                        <li key={personalInf.id}>
                             <p>{personalInf.full_name}</p>
                             <p>{personalInf.phone}</p>
                             <p>{personalInf.linkedin}</p>
