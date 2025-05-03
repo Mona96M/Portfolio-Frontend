@@ -5,8 +5,10 @@ import { useState } from 'react'
 import EducationForm from '../components/PortfolioForm/EducationForm'
 import SkillForm from '../components/PortfolioForm/SkillForm'
 import ProjectForm from '../components/PortfolioForm/ProjectForm'
+import { useNavigate } from 'react-router'
 
 function PortofolioAdd() {
+    const navigate = useNavigate()
     //used a single object for form state 
     //i used this reference https://react.dev/learn/updating-objects-in-state
     const [personalData, setPersonalData] = useState({
@@ -56,6 +58,8 @@ function PortofolioAdd() {
                 project_name: '', 
                 description: '', 
                 project_url: '' });
+                
+                    navigate('/portfolio')
         } catch (error) {
             console.log("Error during submission:", error.response?.data || error.message);
         }
