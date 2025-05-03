@@ -39,6 +39,24 @@ function PortofolioAdd() {
             await axios.post("http://127.0.0.1:8000/api/projects/", projectData);
     
             console.log("All data submitted successfully!");
+            setPersonalData({ 
+                full_name: '', 
+                phone: '', 
+                linkedin: '', 
+                bio: '' 
+            });
+            setEducationData({ 
+                university: '',
+                major: '' 
+            });
+            setSkillData({ 
+                name_of_skill: '' 
+            });
+            setProjectData({ 
+                project_name: '', 
+                description: '', 
+                project_url: '' 
+            });
         } catch (error) {
             console.log("Error during submission:", error.response?.data || error.message);
         }
