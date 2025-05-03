@@ -55,8 +55,7 @@ function PortofolioAdd() {
             setProjectData({ 
                 project_name: '', 
                 description: '', 
-                project_url: '' 
-            });
+                project_url: '' });
         } catch (error) {
             console.log("Error during submission:", error.response?.data || error.message);
         }

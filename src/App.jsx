@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import NavBar from './components/NavBar'
 import Login from './pages/Login'
 import PortofolioAdd from './pages/PortofolioAdd'
-
+import PortfolioDetails from './pages/PortfolioDetails'
 function App() {
     return (
     <Router>
@@ -13,6 +13,7 @@ function App() {
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/portfolio/add' element={<PortofolioAdd/>} />
+            <Route path='/portfolio/:id' element={<PortfolioDetails/>} />
         </Routes>
     </Router>
     )
