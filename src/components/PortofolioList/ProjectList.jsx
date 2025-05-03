@@ -20,9 +20,11 @@ function ProjectList() {
                 {project.map(projects => {
                     return (
                         <li key={projects.id}>
+                            <Link to={`/projects/${projects.id}`}>
                             <p>{projects.project_name}</p>
                             <p>{projects.description}</p>
                             <p>{projects.project_url}</p>
+                            </Link>
                         </li>
                     )
                 })}

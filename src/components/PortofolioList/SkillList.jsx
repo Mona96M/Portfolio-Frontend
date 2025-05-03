@@ -20,7 +20,9 @@ function SkillList() {
                 {skills.map(skill => {
                     return (
                         <li key={skill.id}>
+                            <Link to={`/skills/${skill.id}`}>
                             <p>{skill.name_of_skill}</p>
+                            </Link>
                         </li>
                     )
                 })}

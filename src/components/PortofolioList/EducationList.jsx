@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState , useEffect} from 'react'
+import { Link } from 'react-router'
 
 function EducationList() {
     const [education, setEducation] = useState([])
@@ -20,10 +21,12 @@ function EducationList() {
                 {education.map(educations => {
                     return (
                         <li key={educations.id}>
+                            <Link to={`/educations/${educations.id}`}>
                             <p>{educations.university}</p>
                             <p>{educations.major}</p>
+                            </Link>
                         </li>
-                    )
+                    ) 
                 })}
             </ul>
     </div>
