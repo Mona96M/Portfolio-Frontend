@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SkillForm() {
+function SkillForm(props) {
     return (
         <div>
             <form>
@@ -10,6 +10,11 @@ function SkillForm() {
                     id='name_of_skill'
                     name='name_of_skill'
                     required
+                    value={props.skillData.name_of_skill}
+                    onChange={(event) => props.setSkillData(prev => ({
+                        ...prev, 
+                        name_of_skill: event.target.value 
+                    }))}
                 />
                 </div>
             </form>

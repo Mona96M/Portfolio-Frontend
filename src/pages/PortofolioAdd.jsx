@@ -2,6 +2,7 @@ import React from 'react'
 import PersonalInfoForm from '../components/PortfolioForm/PersonalInfoForm'
 import { useState } from 'react'
 import EducationForm from '../components/PortfolioForm/EducationForm'
+import SkillForm from '../components/PortfolioForm/SkillForm'
 
 function PortofolioAdd() {
     //used a single object for form state 
@@ -16,7 +17,9 @@ function PortofolioAdd() {
         university:'',
         major:''
     })
-    
+    const [skillData, setSkillData] = useState ({
+        name_of_skill:''
+    })
     return (
     <div>
         <h1>Fill out the form</h1>
@@ -27,6 +30,10 @@ function PortofolioAdd() {
         <EducationForm
             educationData={educationData}
             setEducationData={setEducationData}
+        />
+        <SkillForm
+            skillData={skillData}
+            setSkillData={setSkillData}
         />
     </div>
     )
