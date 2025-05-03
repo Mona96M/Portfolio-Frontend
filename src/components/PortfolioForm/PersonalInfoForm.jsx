@@ -10,8 +10,10 @@ function PersonalInfoForm(props) {
                     id='full_name'
                     name='full_name'
                     required
-                    value={props.fullName}
-                    onChange={(event) => props.setFullName(event.target.value)}
+                    value={props.personalData.full_name}
+                    onChange={(event) => props.setPersonalData(prev => ({
+                        ...prev, 
+                        full_name: event.target.value }))}
                 />
                 </div>
                 <div>
@@ -20,8 +22,10 @@ function PersonalInfoForm(props) {
                     id='phone'
                     name='phone'
                     required
-                    value={props.phone}
-                    onChange={(event) => props.setPhone(event.target.value)}
+                    value={props.personalData.phone}
+                    onChange={(event) => props.setPersonalData(prev => ({
+                        ...prev, 
+                        phone: event.target.value }))}
                 />
                 </div>
                 <div>
@@ -30,8 +34,10 @@ function PersonalInfoForm(props) {
                     id='linkedin'
                     name='linkedin'
                     required
-                    value={props.linkedin}
-                    onChange={(event) => props.setLinkedin(event.target.value)}
+                    value={props.personalData.linkedin}
+                    onChange={(event) => props.setPersonalData(prev => ({
+                        ...prev, 
+                        linkedin: event.target.value }))}
                 />
                 </div>
                 <div>
@@ -40,8 +46,10 @@ function PersonalInfoForm(props) {
                     id='bio'
                     name='bio'
                     required
-                    value={props.bio}
-                    onChange={(event) => props.setBio(event.target.value)}
+                    value={props.personalData.bio}
+                    onChange={(event) => props.setPersonalData(prev => ({
+                        ...prev, 
+                        bio: event.target.value }))}
                 />
                 </div>
             </form>

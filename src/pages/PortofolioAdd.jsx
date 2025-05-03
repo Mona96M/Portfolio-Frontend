@@ -3,22 +3,21 @@ import PersonalInfoForm from '../components/PortfolioForm/PersonalInfoForm'
 import { useState } from 'react'
 
 function PortofolioAdd() {
-    const [full_name, setFullName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [linkedin, setLinkedin] = useState('')
-    const [bio, setBio] = useState('')
+    //used a single object for form state 
+    //i used this reference https://react.dev/learn/updating-objects-in-state
+    const [personalData, setPersonalData] = useState({
+        full_name: '',
+        phone: '',
+        linkedin: '',
+        bio: ''
+    })
+    
     return (
     <div>
         <h1>Fill out the form</h1>
         <PersonalInfoForm
-            full_name={full_name}
-            setFullName={setFullName}
-            phone={phone}
-            setPhone={setPhone}
-            linkedin={linkedin}
-            setLinkedin={setLinkedin}
-            bio={bio}
-            setBio={setBio}
+            personalData={personalData}
+            setPersonalData={setPersonalData}
         />
     </div>
     )
