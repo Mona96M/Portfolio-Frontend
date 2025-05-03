@@ -35,7 +35,8 @@ function PortofolioAdd() {
     // This is my first time handling multiple API endpoints in a single submission.
     // After researching I implemented this solution using axios and await
         try {
-            await axios.post("http://127.0.0.1:8000/api/personalinfo/", personalData);
+            const personalResponse = await axios.post("http://127.0.0.1:8000/api/personalinfo/", personalData);
+            const personalId = personalResponse.data.id;
             await axios.post("http://127.0.0.1:8000/api/educations/", educationData);
             await axios.post("http://127.0.0.1:8000/api/skills/", skillData);
             await axios.post("http://127.0.0.1:8000/api/projects/", projectData);
@@ -58,8 +59,9 @@ function PortofolioAdd() {
                 project_name: '', 
                 description: '', 
                 project_url: '' });
-                
-                    navigate('/portfolio')
+                //I researched how to redirect the user to portoflio page after successfully submitting the form 
+                //this is one of the sites I referred to https://www.geeksforgeeks.org/reactjs-usenavigate-hook/
+                navigate(`/portfolio/${personalId}`);
         } catch (error) {
             console.log("Error during submission:", error.response?.data || error.message);
         }
