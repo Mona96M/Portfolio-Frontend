@@ -2,8 +2,7 @@ import React from 'react'
 
 function ProjectForm(props) {
     return (
-        <div>
-            <form>
+            <div>
                 <div>
                 <label htmlFor='project_name'>Project Name</label>
                 <input
@@ -43,8 +42,7 @@ function ProjectForm(props) {
                     }))}
                 />
                 </div>
-            </form>
-        </div>
+            </div>
     )
 }
 export default ProjectForm

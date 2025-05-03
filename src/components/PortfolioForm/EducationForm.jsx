@@ -2,8 +2,7 @@ import React from 'react'
 
 function EducationForm(props) {
     return (
-        <div>
-            <form>
+            <div>
                 <div>
                 <label htmlFor='university'>University</label>
                 <input
@@ -30,8 +29,7 @@ function EducationForm(props) {
                     }))}
                 />
                 </div>
-            </form>
-        </div>
+            </div>
     )
 }
 export default EducationForm

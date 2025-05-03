@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import PersonalInfoForm from '../components/PortfolioForm/PersonalInfoForm'
 import { useState } from 'react'
 import EducationForm from '../components/PortfolioForm/EducationForm'
@@ -11,7 +12,7 @@ function PortofolioAdd() {
     const [personalData, setPersonalData] = useState({
         full_name: '',
         phone: '',
-        linkedin: '',
+        linkedin: 'https://www.linkedin.com/',
         bio: ''
     })
     const [educationData, setEducationData] = useState ({
@@ -24,10 +25,27 @@ function PortofolioAdd() {
     const [projectData, setProjectData] = useState({
         project_name: '',
         description: '',
-        project_url: ''
+        project_url: 'https://github.com/'
     })
+    async function handleSubmit(event){
+        event.preventDefault();
+        console.log("Handle Submit is running");
+    // This is my first time handling multiple API endpoints in a single submission.
+    // After researching I implemented this solution using axios and await
+        try {
+            await axios.post("http://127.0.0.1:8000/api/personalinfo/", personalData);
+            await axios.post("http://127.0.0.1:8000/api/educations/", educationData);
+            await axios.post("http://127.0.0.1:8000/api/skills/", skillData);
+            await axios.post("http://127.0.0.1:8000/api/projects/", projectData);
+    
+            console.log("All data submitted successfully!");
+        } catch (error) {
+            console.log("Error during submission:", error.response?.data || error.message);
+        }
+    };
+    
     return (
-    <div>
+        <form onSubmit={handleSubmit}>
         <h1>Fill out the form</h1>
         <PersonalInfoForm
             personalData={personalData}
@@ -45,7 +63,8 @@ function PortofolioAdd() {
             projectData={projectData}
             setProjectData={setProjectData}
         />
-    </div>
+        <button type='submit'>Create</button>
+        </form>
     )
 }
 

@@ -2,8 +2,7 @@ import React from 'react'
 
 function PersonalInfoForm(props) {
     return (
-        <div>
-            <form>
+            <div>
                 <div>
                 <label htmlFor='full_name'>Full name</label>
                 <input
@@ -52,8 +51,7 @@ function PersonalInfoForm(props) {
                         bio: event.target.value }))}
                 />
                 </div>
-            </form>
-        </div>
+            </div>
     )
 }
 export default PersonalInfoForm

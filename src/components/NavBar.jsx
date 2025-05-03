@@ -1,12 +1,10 @@
 import React from 'react'
 
-import { Link , useNavigate} from 'react-router'
+import { Link } from 'react-router'
 
 function NavBar() {
-    const navigate = useNavigate()
     
-        navigate('/login')
-        
+    
     return (
         //used W3Schools as a reference for styling the nav
     <nav> 
@@ -18,5 +16,4 @@ function NavBar() {
     </nav>
     )
 }
-
 export default NavBar

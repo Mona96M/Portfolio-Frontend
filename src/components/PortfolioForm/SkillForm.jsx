@@ -2,8 +2,7 @@ import React from 'react'
 
 function SkillForm(props) {
     return (
-        <div>
-            <form>
+            <div>
                 <div>
                 <label htmlFor='name_of_skill'>Name of Skill</label>
                 <input
@@ -17,8 +16,7 @@ function SkillForm(props) {
                     }))}
                 />
                 </div>
-            </form>
-        </div>
+            </div>
     )
 }
 export default SkillForm
