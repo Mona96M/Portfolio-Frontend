@@ -1,6 +1,6 @@
 import React from 'react'
 
-function EducationForm() {
+function EducationForm(props) {
     return (
         <div>
             <form>
@@ -10,7 +10,11 @@ function EducationForm() {
                     id='university'
                     name='university'
                     required
-                    
+                    value={props.formData.university}
+                    onChange={(event) => props.setFormData(prev => ({
+                        ...prev, 
+                        university: event.target.value 
+                    }))}
                 />
                 </div>
                 <div>
@@ -19,7 +23,11 @@ function EducationForm() {
                     id='major'
                     name='major'
                     required
-                    
+                    value={props.formData.major}
+                    onChange={(event) => props.setFormData(prev => ({
+                        ...prev, 
+                        major: event.target.value 
+                    }))}
                 />
                 </div>
             </form>
