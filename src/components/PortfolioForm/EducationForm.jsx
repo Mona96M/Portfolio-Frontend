@@ -10,8 +10,8 @@ function EducationForm(props) {
                     id='university'
                     name='university'
                     required
-                    value={props.formData.university}
-                    onChange={(event) => props.setFormData(prev => ({
+                    value={props.educationData.university}
+                    onChange={(event) => props.setEducationData(prev => ({
                         ...prev, 
                         university: event.target.value 
                     }))}
@@ -23,8 +23,8 @@ function EducationForm(props) {
                     id='major'
                     name='major'
                     required
-                    value={props.formData.major}
-                    onChange={(event) => props.setFormData(prev => ({
+                    value={props.educationData.major}
+                    onChange={(event) => props.setEducationData(prev => ({
                         ...prev, 
                         major: event.target.value 
                     }))}
