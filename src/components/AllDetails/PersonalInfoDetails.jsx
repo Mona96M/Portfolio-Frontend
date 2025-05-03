@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useState , useEffect} from 'react'
-import { useParams } from 'react-router'
+import { useParams,useNavigate } from 'react-router'
 
 import axios from 'axios'
 
@@ -9,7 +9,7 @@ function PersonalInfoDetails() {
     const { id } = useParams()
     const [personal, setPersonal] = useState(null)
     const [errorMsg, setErrorMsg] = useState('')
-
+    const navigate = useNavigate()
     async function getSingleData() {
         
         try {
@@ -18,7 +18,7 @@ function PersonalInfoDetails() {
         } catch (err) {
             console.log(err)
             if (err.status === 404) {
-                setErrorMsg('Personal Info Not Found')
+                navigate('/not-found')
             } else {
                 setErrorMsg('Somethig went Wrong!')
             }

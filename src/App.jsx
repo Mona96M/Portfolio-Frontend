@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import Login from './pages/Login'
 import PortofolioAdd from './pages/PortofolioAdd'
 import PortfolioDetails from './pages/PortfolioDetails'
+import NotFound from './pages/NotFound'
 function App() {
     return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
             <Route path='/login' element={<Login/>}/>
             <Route path='/portfolio/add' element={<PortofolioAdd/>} />
             <Route path='/portfolio/:id' element={<PortfolioDetails/>} />
+            <Route path='*' element={<NotFound/>} />
         </Routes>
     </Router>
     )
