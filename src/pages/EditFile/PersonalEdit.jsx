@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import axios from 'axios'
 
-import PersonalInfoForm from '../components/PortfolioForm/PersonalInfoForm'
+import PersonalInfoForm from '../../components/PortfolioForm/PersonalInfoForm'
 
 function PersonalInfoEdit() {
     const [personalData, setPersonalData] = useState({
