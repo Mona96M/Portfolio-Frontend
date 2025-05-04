@@ -6,11 +6,11 @@ import Login from './pages/Login'
 import PortofolioAdd from './pages/PortofolioAdd'
 import PortfolioDetails from './pages/PortfolioDetails'
 import NotFound from './pages/NotFound'
-import PersonalEdit from './pages/PersonalEdit'
 import EducationEdit from './pages/EducationEdit'
 import SkillEdit from './pages/SkillEdit'
 import ProjectEdit from './pages/ProjectEdit'
 import PersonalInfoEdit from './pages/PersonalEdit'
+import DeletePersonalInfo from './pages/DeletePersonalInfo'
 
 function App() {
     return (
@@ -25,6 +25,7 @@ function App() {
             <Route path='/education/:id/edit' element={<EducationEdit/>} />
             <Route path='/skill/:id/edit' element={<SkillEdit/>} />
             <Route path='/project/:id/edit' element={<ProjectEdit/>} />
+            <Route path='/confirm-delete/:id' element={<DeletePersonalInfo />} />
             <Route path='*' element={<NotFound/>} />
         </Routes>
     </Router>

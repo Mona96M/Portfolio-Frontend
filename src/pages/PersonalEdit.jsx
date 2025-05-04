@@ -30,9 +30,12 @@ function PersonalInfoEdit() {
             `http://127.0.0.1:8000/api/personalinfo/${id}/`,
             { personalData}
         )
-        navigate(`/portofolio/${id}`)
+        navigate(`/portfolio/${id}`)
     }
-
+    function handleDelete() {
+        navigate(`/confirm-delete/${id}`)
+    }
+    
     return (
         <div>
             <h2>Edit your personal</h2>
@@ -41,6 +44,7 @@ function PersonalInfoEdit() {
                 setPersonalData={setPersonalData}
                 handleSubmit={handleSubmit}
             />
+            <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }
