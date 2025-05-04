@@ -1,13 +1,14 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useState , useEffect} from 'react'
 import { Link } from 'react-router'
+import { authorizedRequest } from '../../lib/api'
 
 function EducationList() {
     const [education, setEducation] = useState([])
 
     async function getAllEducation(){
-        const response = await axios.get('http://127.0.0.1:8000/api/educations')
+        const response = await authorizedRequest('get', 'educations/')
         console.log(response)
         setEducation(response.data)
     }

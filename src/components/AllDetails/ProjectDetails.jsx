@@ -3,8 +3,8 @@ import React from 'react'
 import { useState , useEffect} from 'react'
 import { useParams , useNavigate, Link} from 'react-router'
 
-import axios from 'axios'
-
+// import axios from 'axios'
+import { authorizedRequest } from '../lib/api'
 function ProjectDetails() {
     const { id } = useParams()
     const [project, setProject] = useState(null)
@@ -12,7 +12,7 @@ function ProjectDetails() {
     const navigate = useNavigate()
     async function getSingleData() {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/projects/${id}`)
+            const response = await authorizedRequest('get', `/projects/${id}`)
             setProject(response.data)
         } catch (err) {
             console.log(err)

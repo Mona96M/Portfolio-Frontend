@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
-import axios from 'axios'
-
+// import axios from 'axios'
+import { authorizedRequest } from '../../lib/api'
 import SkillForm from '../../components/PortfolioForm/SkillForm'
 
 function SkillEdit() {
@@ -13,7 +13,7 @@ function SkillEdit() {
     const navigate = useNavigate()
 
     async function getCurrentSkillData() {
-        const response = await axios.get(`http://127.0.0.1:8000/api/skills/${id}`)
+        const response = await authorizedRequest('get', `skills/${id}/`)
         setSkillData(response.data)
     }
 
@@ -23,10 +23,8 @@ function SkillEdit() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        const response = await axios.patch(
-            `http://127.0.0.1:8000/api/skills/${id}/`,
-            skillData
-        )
+        const response = await authorizedRequest('patch', `skills/${id}/`, skillData)
+
         navigate(`/portfolio/${id}`)
     }
     function handleDelete() {

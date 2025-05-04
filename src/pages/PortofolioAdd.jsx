@@ -1,11 +1,12 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import PersonalInfoForm from '../components/PortfolioForm/PersonalInfoForm'
 import { useState } from 'react'
 import EducationForm from '../components/PortfolioForm/EducationForm'
 import SkillForm from '../components/PortfolioForm/SkillForm'
 import ProjectForm from '../components/PortfolioForm/ProjectForm'
 import { useNavigate } from 'react-router'
+import { authorizedRequest } from '../lib/api'
 
 function PortofolioAdd() {
     const navigate = useNavigate()
@@ -35,13 +36,13 @@ function PortofolioAdd() {
     // This is my first time handling multiple API endpoints in a single submission.
     // After researching I implemented this solution using axios and await
         try {
-            const personalResponse = await axios.post("http://127.0.0.1:8000/api/personalinfo/", personalData);
+            const personalResponse = await authorizedRequest('post', 'personalinfo/', personalData)
             const personalId = personalResponse.data.id;
-            await axios.post("http://127.0.0.1:8000/api/educations/", educationData);
-            await axios.post("http://127.0.0.1:8000/api/skills/", skillData);
-            await axios.post("http://127.0.0.1:8000/api/projects/", projectData);
+            await authorizedRequest('post', 'education/', educationData)
+            await authorizedRequest('post', 'skills/', skillData)
+            await authorizedRequest('post', 'projects/', projectData)
     
-            console.log("All data submitted successfully!");
+            console.log("All data submitted successfully!")
             setPersonalData({ 
                 full_name: '', 
                 phone: '', 

@@ -3,8 +3,8 @@ import React from 'react'
 import { useState , useEffect} from 'react'
 import { useParams,useNavigate, Link } from 'react-router'
 
-import axios from 'axios'
-
+// import axios from 'axios'
+import { authorizedRequest } from '../lib/api'
 function PersonalInfoDetails() {
     const { id } = useParams()
     const [personal, setPersonal] = useState(null)
@@ -13,7 +13,7 @@ function PersonalInfoDetails() {
     async function getSingleData() {
         
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/personalinfo/${id}`)
+            const response = await authorizedRequest('get', `/personalinfo/${id}`)
             setPersonal(response.data)
         } catch (err) {
             console.log(err)

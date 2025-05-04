@@ -2,8 +2,8 @@ import React from 'react'
 
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
-import axios from 'axios'
-
+// import axios from 'axios'
+import { authorizedRequest } from '../../lib/api'
 import EducationForm from '../../components/PortfolioForm/EducationForm'
 
 function EducationEdit() {
@@ -15,7 +15,7 @@ function EducationEdit() {
     const navigate = useNavigate()
 
     async function getCurrentEducationData() {
-        const response = await axios.get(`http://127.0.0.1:8000/api/educations/${id}`)
+        const response = await authorizedRequest('get', `educations/${id}/`)
         setEducationData(response.data)
     }
 
@@ -25,10 +25,7 @@ function EducationEdit() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        const response = await axios.patch(
-            `http://127.0.0.1:8000/api/educations/${id}/`,
-            educationData
-        )
+        const response = await authorizedRequest('patch', `educations/${id}/`, educationData)
         navigate(`/portfolio/${id}`)
     }
     function handleDelete() {

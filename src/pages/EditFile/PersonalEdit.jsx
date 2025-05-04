@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
-import axios from 'axios'
-
+// import axios from 'axios'
+import { authorizedRequest } from '../../lib/api'
 import PersonalInfoForm from '../../components/PortfolioForm/PersonalInfoForm'
 
 function PersonalInfoEdit() {
@@ -16,7 +16,7 @@ function PersonalInfoEdit() {
     const navigate = useNavigate()
 
     async function getCurrentPersonalData() {
-        const response = await axios.get(`http://127.0.0.1:8000/api/personalinfo/${id}`)
+        const response = await authorizedRequest('get', `personalinfo/${id}/`)
         setPersonalData(response.data)
     }
 
@@ -26,10 +26,8 @@ function PersonalInfoEdit() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        const response = await axios.patch(
-            `http://127.0.0.1:8000/api/personalinfo/${id}/`,
-            personalData
-        )
+        const response = await authorizedRequest('patch', `personalinfo/${id}/`, personalData)
+        
         navigate(`/portfolio/${id}`)
     }
     function handleDelete() {

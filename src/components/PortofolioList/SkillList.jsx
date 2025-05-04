@@ -1,12 +1,13 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
+import { authorizedRequest } from '../../lib/api'
 import { useState , useEffect} from 'react'
 
 function SkillList() {
     const [skills, setSkills] = useState([])
 
     async function getAllSkill(){
-        const response = await axios.get('http://127.0.0.1:8000/api/skills')
+        const response = await authorizedRequest('get', 'skills/')
         console.log(response)
         setSkills(response.data)
     }

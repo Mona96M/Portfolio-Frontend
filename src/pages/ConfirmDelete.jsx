@@ -1,14 +1,16 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router'
-import axios from 'axios'
+// import axios from 'axios'
+import { authorizedRequest } from '../lib/api'
 
 function ConfirmDelete() {
-    const { id } = useParams()
+    // I used the {type} (in the same way as the ID) to extract the resource type
+    const { type ,id } = useParams()
     const navigate = useNavigate()
 
     async function deleteType() {
         try {
-            const response = await axios.delete(`http://127.0.0.1:8000/api/{type}/${id}/`)
+            const response = await authorizedRequest('delete', `/${type}/${id}/`)
             if (response.status === 204) {
                 navigate('/') 
             }

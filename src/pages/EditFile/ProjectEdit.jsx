@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
-import axios from 'axios'
+// import axios from 'axios'
+import { authorizedRequest } from '../../lib/api'
 import ProjectForm from '../../components/PortfolioForm/ProjectForm'
 
 function ProjectEdit() {
@@ -14,7 +15,7 @@ function ProjectEdit() {
     const navigate = useNavigate()
 
     async function getCurrentProjectData() {
-        const response = await axios.get(`http://127.0.0.1:8000/api/projects/${id}`)
+        const response = await authorizedRequest('get', `projects/${id}/`)
         setProjectData(response.data)
     }
 
@@ -24,10 +25,8 @@ function ProjectEdit() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        const response = await axios.patch(
-            `http://127.0.0.1:8000/api/projects/${id}/`,
-            projectData
-        )
+        const response = await authorizedRequest('patch', `projects/${id}/`, projectData)
+
         navigate(`/portfolio/${id}`)
     }
     function handleDelete() {

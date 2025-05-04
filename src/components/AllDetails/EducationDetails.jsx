@@ -3,8 +3,8 @@ import React from 'react'
 import { useState , useEffect} from 'react'
 import { useParams,useNavigate,Link } from 'react-router'
 
-import axios from 'axios'
-
+// import axios from 'axios'
+import { authorizedRequest } from '../lib/api'
 function EducationDetails() {
     const { id } = useParams()
     const [education, setEducation] = useState(null)
@@ -13,7 +13,7 @@ function EducationDetails() {
     async function getSingleData() {
         
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/educations/${id}`)
+            const response = await authorizedRequest('get', `/educations/${id}`)
             setEducation(response.data)
         } catch (err) {
             console.log(err)

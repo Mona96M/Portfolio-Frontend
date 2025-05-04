@@ -1,12 +1,13 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
+import { authorizedRequest } from '../../lib/api'
 import { useState , useEffect} from 'react'
 
 function ProjectList() {
     const [project, setProject] = useState([])
 
     async function getAllProject(){
-        const response = await axios.get('http://127.0.0.1:8000/api/projects')
+        const response = await authorizedRequest('get', 'projects/')
         console.log(response)
         setProject(response.data)
     }

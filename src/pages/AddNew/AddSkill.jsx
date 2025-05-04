@@ -1,9 +1,9 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 import { useState} from 'react'
 import { useNavigate } from 'react-router'
-
+import { authorizedRequest } from '../../lib/api'
 import SkillForm from '../../components/PortfolioForm/SkillForm'
 
 
@@ -14,8 +14,7 @@ function AddSkill() {
         })
     async function handleSubmit(event){
         event.preventDefault();
-        const url = 'http://127.0.0.1:8000/api/skills/'
-        const response = await axios.post(url, skillData)
+        const response = await authorizedRequest('post', 'skills/', skillData)
         console.log(response)
         navigate('/')
     }

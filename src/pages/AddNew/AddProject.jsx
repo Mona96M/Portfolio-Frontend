@@ -1,9 +1,9 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 import { useState} from 'react'
 import { useNavigate } from 'react-router'
-
+import { authorizedRequest } from '../../lib/api'
 import ProjectForm from '../../components/PortfolioForm/ProjectForm'
 
 
@@ -16,8 +16,7 @@ function AddProject() {
         })
     async function handleSubmit(event){
         event.preventDefault();
-        const url = 'http://127.0.0.1:8000/api/projects/'
-        const response = await axios.post(url, projectData)
+        const response = await authorizedRequest('post', 'projects/', projectData)
         console.log(response)
         
         navigate('/')

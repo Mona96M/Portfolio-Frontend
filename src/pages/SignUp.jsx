@@ -1,8 +1,9 @@
 import React from 'react'
 
 import { useState } from 'react'
-import axios from 'axios'
-
+// import axios from 'axios'
+import { authorizedRequest } from '../lib/api'
+import { setTokens } from '../lib/api'
 function SignUp() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -11,11 +12,11 @@ function SignUp() {
     async function handleSubmit(event){
         event.preventDefault()
         try {
-            const response = await axios.post(
-                'http://127.0.0.1:8000/api/signup/',
+            const response = await authorizedRequest('post', 'signup/',
                 {username, email, password}
             )
             console.log(response.data)
+            setTokens(response.data)
         } catch (err) {
             console.log(err)
         }}

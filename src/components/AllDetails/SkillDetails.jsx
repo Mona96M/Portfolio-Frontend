@@ -3,8 +3,8 @@ import React from 'react'
 import { useState , useEffect} from 'react'
 import { useParams ,useNavigate, Link} from 'react-router'
 
-import axios from 'axios'
-
+// import axios from 'axios'
+import { authorizedRequest } from '../lib/api'
 function SkillDetails() {
     const { id } = useParams()
     const [skill, setSkill] = useState(null)
@@ -12,7 +12,7 @@ function SkillDetails() {
     const navigate = useNavigate()
     async function getSingleData() {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/skills/${id}`)
+            const response = await authorizedRequest('get', `/skills/${id}`)
             setSkill(response.data)
         } catch (err) {
             console.log(err)

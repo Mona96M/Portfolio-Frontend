@@ -1,9 +1,9 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 import { useState} from 'react'
 import { useNavigate } from 'react-router'
-
+import { authorizedRequest } from '../../lib/api'
 import EducationForm from '../../components/PortfolioForm/EducationForm'
 
 
@@ -15,8 +15,7 @@ function AddEducation() {
         })
     async function handleSubmit(event){
         event.preventDefault();
-        const url = 'http://127.0.0.1:8000/api/educations/'
-        const response = await axios.post(url, educationData)
+        const response = await authorizedRequest('post', 'educations/', educationData)
         console.log("Added:", response.data)
         
         navigate('/')
