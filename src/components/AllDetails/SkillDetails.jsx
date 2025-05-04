@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useState , useEffect} from 'react'
-import { useParams ,useNavigate} from 'react-router'
+import { useParams ,useNavigate, Link} from 'react-router'
 
 import axios from 'axios'
 
@@ -33,7 +33,10 @@ function SkillDetails() {
 
     return (
         <div>
-            <h4>{skill.name_of_skill}</h4>
+            
+            <h2>Skills</h2>
+            <Link to={`/skill/${skill.id}/edit`}>
+            <h4>{skill.name_of_skill}</h4></Link>
         </div>
     )
 }

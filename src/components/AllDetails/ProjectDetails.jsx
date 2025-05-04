@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useState , useEffect} from 'react'
-import { useParams , useNavigate} from 'react-router'
+import { useParams , useNavigate, Link} from 'react-router'
 
 import axios from 'axios'
 
@@ -33,7 +33,9 @@ function ProjectDetails() {
 
     return (
         <div>
-            <h4>{project.project_name}</h4>
+            <h2>Projects</h2>
+            <Link to={`/project/${project.id}/edit`}>
+            <h4>{project.project_name}</h4></Link>
             <h4>{project.description}</h4>
             <h4>{project.project_url}</h4>
         </div>

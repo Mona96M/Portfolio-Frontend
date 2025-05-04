@@ -22,12 +22,10 @@ function PersonalInfoList() {
                 {personalInfo.map(personalInf => {
                     return (
                         <li key={personalInf.id}>
-                            <Link to={`/personalinfo/${personalInf.id}`}>
                             <p>{personalInf.full_name}</p>
                             <p>{personalInf.phone}</p>
                             <p>{personalInf.linkedin}</p>
                             <p>{personalInf.bio}</p>
-                            </Link>
                         </li>
                     )
                 })}

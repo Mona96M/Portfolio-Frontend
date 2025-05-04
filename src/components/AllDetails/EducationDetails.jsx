@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useState , useEffect} from 'react'
-import { useParams,useNavigate } from 'react-router'
+import { useParams,useNavigate,Link } from 'react-router'
 
 import axios from 'axios'
 
@@ -29,14 +29,15 @@ function EducationDetails() {
         getSingleData()
         console.log(id)
     }, [])
-
-
+    
     if (errorMsg) return <h1>{errorMsg}</h1>
     if (!education) return <h4>Loading your Education details...</h4>
 
     return (
         <div>
-            <h4>{education.university}</h4>
+            <h2>Education</h2>
+            <Link to={`/education/${education.id}/edit`}>
+            <h4>{education.university}</h4></Link>
             <h4>{education.major}</h4>
         </div>
     )

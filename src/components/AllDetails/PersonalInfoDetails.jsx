@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useState , useEffect} from 'react'
-import { useParams,useNavigate } from 'react-router'
+import { useParams,useNavigate, Link } from 'react-router'
 
 import axios from 'axios'
 
@@ -36,6 +36,9 @@ function PersonalInfoDetails() {
 
     return (
         <div>
+            <Link to={`/personalinfo/${personal.id}/edit`}>
+            <h2>Personal information</h2>
+            </Link>
             <h2>{personal.full_name}</h2>
             <h4>{personal.phone}</h4>
             <h4>{personal.linkedin}</h4>
