@@ -10,8 +10,7 @@ import EducationEdit from './pages/EditFile/EducationEdit'
 import SkillEdit from './pages/EditFile/SkillEdit'
 import ProjectEdit from './pages/EditFile/ProjectEdit'
 import PersonalInfoEdit from './pages/EditFile/PersonalEdit'
-import DeletePersonalInfo from './pages/ConfirmDelete/DeletePersonalInfo'
-import DeleteEducation from './pages/ConfirmDelete/DeleteEducation'
+import ConfirmDelete from './pages/ConfirmDelete'
 function App() {
     return (
     <Router>
@@ -25,8 +24,7 @@ function App() {
             <Route path='/education/:id/edit' element={<EducationEdit/>} />
             <Route path='/skill/:id/edit' element={<SkillEdit/>} />
             <Route path='/project/:id/edit' element={<ProjectEdit/>} />
-            <Route path='/confirm-delete/:id' element={<DeletePersonalInfo />} />
-            <Route path='/confirm-delete/:id' element={<DeleteEducation />} />
+            <Route path='/confirm-delete/:type/:id' element={<ConfirmDelete/>} />
             <Route path='*' element={<NotFound/>} />
         </Routes>
     </Router>

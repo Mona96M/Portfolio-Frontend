@@ -32,7 +32,7 @@ function EducationEdit() {
         navigate(`/portfolio/${id}`)
     }
     function handleDelete() {
-        navigate(`/confirm-delete/${id}`)
+        navigate(`/confirm-delete/educations${id}`)
     }
     
     return (

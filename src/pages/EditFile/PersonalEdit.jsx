@@ -33,7 +33,7 @@ function PersonalInfoEdit() {
         navigate(`/portfolio/${id}`)
     }
     function handleDelete() {
-        navigate(`/confirm-delete/${id}`)
+        navigate(`/confirm-delete/personalinfo/${id}`)
     }
     
     return (
