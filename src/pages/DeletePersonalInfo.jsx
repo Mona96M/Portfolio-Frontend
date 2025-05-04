@@ -21,6 +21,7 @@ function DeletePersonalInfo() {
         <div>
             <h2>Are you sure you want to delete this information?</h2>
             <button onClick={deletePersonalInfo}>Delete</button>
+            {/* i use this navigate(-1) >> go back one step  */}
             <button onClick={() => navigate(-1)}>Cancel</button>
         </div>
     )

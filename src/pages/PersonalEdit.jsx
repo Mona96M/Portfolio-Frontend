@@ -28,7 +28,7 @@ function PersonalInfoEdit() {
         event.preventDefault()
         const response = await axios.patch(
             `http://127.0.0.1:8000/api/personalinfo/${id}/`,
-            { personalData}
+            personalData
         )
         navigate(`/portfolio/${id}`)
     }
@@ -38,13 +38,16 @@ function PersonalInfoEdit() {
     
     return (
         <div>
+            <form onSubmit={handleSubmit}>
             <h2>Edit your personal</h2>
             <PersonalInfoForm
                 personalData={personalData}
                 setPersonalData={setPersonalData}
                 handleSubmit={handleSubmit}
             />
-            <button onClick={handleDelete}>Delete</button>
+            <button type="submit">Save</button>
+            <button type='button' onClick={handleDelete}>Delete</button>
+            </form>
         </div>
     )
 }
