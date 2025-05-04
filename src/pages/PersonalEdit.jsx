@@ -1,11 +1,48 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router'
+import axios from 'axios'
 
-function PersonalEdit() {
+import PersonalInfoForm from '../components/PortfolioForm/PersonalInfoForm'
+
+function PersonalInfoEdit() {
+    const [personalData, setPersonalData] = useState({
+        full_name: '',
+        phone: '',
+        linkedin: '',
+        bio: ''
+    })
+    const { id } = useParams()
+    const navigate = useNavigate()
+
+    async function getCurrentPersonalData() {
+        const response = await axios.get(`http://127.0.0.1:8000/api/personalinfo/${id}`)
+        setPersonalData(response.data)
+    }
+
+    useEffect(() => {
+        getCurrentPersonalData()
+    }, [])
+
+    async function handleSubmit(event) {
+        event.preventDefault()
+        const response = await axios.patch(
+            `http://127.0.0.1:8000/api/personalinfo/${id}/`,
+            { personalData}
+        )
+        navigate(`/portofolio/${id}`)
+    }
+
     return (
-    <div>
-        
-    </div>
+        <div>
+            <h2>Edit your personal</h2>
+            <PersonalInfoForm
+                personalData={personalData}
+                setPersonalData={setPersonalData}
+                handleSubmit={handleSubmit}
+            />
+        </div>
     )
 }
 
-export default PersonalEdit
+export default PersonalInfoEdit
