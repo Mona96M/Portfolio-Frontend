@@ -12,6 +12,7 @@ function NavBar() {
         <div className='NavLink'>
         <Link to="/education/new">Add Education</Link>
         <Link to="skill/new">Add Skill</Link>
+        <Link to="project/new">Add Project</Link>
         <Link to='/login'>Log in</Link>
         <Link to='/login' className='button-link'>Get Start</Link>
         </div>

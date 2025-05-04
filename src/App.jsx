@@ -13,6 +13,7 @@ import PersonalInfoEdit from './pages/EditFile/PersonalEdit'
 import ConfirmDelete from './pages/ConfirmDelete'
 import AddEducation from './pages/AddNew/AddEducation'
 import AddSkill from './pages/AddNew/AddSkill'
+import AddProject from './pages/AddNew/AddProject'
 function App() {
     return (
     <Router>
@@ -28,6 +29,7 @@ function App() {
             <Route path='/project/:id/edit' element={<ProjectEdit/>} />
             <Route path='/education/new' element={<AddEducation/>} />
             <Route path='/skill/new' element={<AddSkill/>} />
+            <Route path='/project/new' element={<AddProject/>} />
             <Route path='/confirm-delete/:type/:id' element={<ConfirmDelete/>} />
             <Route path='*' element={<NotFound/>} />
         </Routes>
