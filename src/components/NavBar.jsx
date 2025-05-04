@@ -10,6 +10,7 @@ function NavBar() {
     <nav> 
         <h3>Portfolio</h3>
         <div className='NavLink'>
+        <Link to="/education/new">Add Education</Link>
         <Link to='/login'>Log in</Link>
         <Link to='/login' className='button-link'>Get Start</Link>
         </div>

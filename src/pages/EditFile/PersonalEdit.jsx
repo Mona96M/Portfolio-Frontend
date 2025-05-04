@@ -39,7 +39,7 @@ function PersonalInfoEdit() {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <h2>Edit your personal</h2>
+            <h2>Edit your Personal</h2>
             <PersonalInfoForm
                 personalData={personalData}
                 setPersonalData={setPersonalData}

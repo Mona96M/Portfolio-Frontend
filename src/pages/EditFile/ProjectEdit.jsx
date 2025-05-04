@@ -37,7 +37,7 @@ function ProjectEdit() {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <h2>Edit your personal</h2>
+            <h2>Edit your Project</h2>
             <ProjectForm
                 projectData={projectData}
                 setProjectData={setProjectData}
