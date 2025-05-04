@@ -14,12 +14,14 @@ import ConfirmDelete from './pages/ConfirmDelete'
 import AddEducation from './pages/AddNew/AddEducation'
 import AddSkill from './pages/AddNew/AddSkill'
 import AddProject from './pages/AddNew/AddProject'
+import SignUp from './pages/SignUp'
 function App() {
     return (
     <Router>
         <NavBar/>
         <Routes>
             <Route path='/' element={<Home/>}/>
+            <Route path='/signup' element={<SignUp />} />
             <Route path='/login' element={<Login/>}/>
             <Route path='/portfolio/add' element={<PortofolioAdd/>} />
             <Route path='/portfolio/:id' element={<PortfolioDetails/>} />
