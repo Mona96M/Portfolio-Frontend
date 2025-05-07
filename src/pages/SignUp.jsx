@@ -1,61 +1,98 @@
-import React from 'react'
+import React from "react";
 
-import { useState } from 'react'
-// import axios from 'axios'
-import { authorizedRequest } from '../lib/api'
-import { setTokens } from '../lib/api'
+import { useState } from "react";
+import axios from "axios";
+import { setTokens } from "../lib/api";
+import { useNavigate } from "react-router";
+
 function SignUp() {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [email, setEmail] = useState('')
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const navigate = useNavigate();
 
-    async function handleSubmit(event){
-        event.preventDefault()
-        try {
-            const response = await authorizedRequest('post', 'signup/',
-                {username, email, password}
-            )
-            console.log(response.data)
-            setTokens(response.data)
-        } catch (err) {
-            console.log(err)
-        }}
+    async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+        const response = await axios.post(`${baseUrl}/signup/`, {
+        username,
+        email,
+        password,
+        });
+      // console.log(response.data)
+        setTokens(response.data);
+        navigate("/portfolio/add");
+    } catch (err) {
+        console.log(err);
+    }
+    }
 
     return (
-    <div>
+    <div
+        className="is-flex is-justify-content-center is-align-items-center"
+        style={{ minHeight: "100vh" }}
+    >
+        <div className="form-box">
+        <h1 className="title is-4 has-text-centered">SignUp</h1>
         <form onSubmit={handleSubmit}>
-        <h1>Sign Up</h1>
-        <div>
-        <input
-            type='text'
-            placeholder='Username'
-            name='username'
-            onChange={event => setUsername(event.target.value)}
-            value={username}
-        />
-        </div>
-        <div>
-        <input
-            type='password'
-            placeholder='password'
-            name='password'
-            onChange={event => setPassword(event.target.value)}
-            value={password}
-        />
-        </div>
-        <div>
-        <input
-            type='text'
-            placeholder='email'
-            name='email'
-            onChange={event => setEmail(event.target.value)}
-            value={email}
-        />
-        </div>
-        <button type='submit'>sign up</button>
+            <div className="field">
+            <label className="label">Username</label>
+            <div className="control">
+                <input
+                className="input"
+                type="text"
+                placeholder="Username"
+                name="username"
+                required
+                onChange={(event) => setUsername(event.target.value)}
+                value={username}
+                />
+            </div>
+            </div>
+            <div className="field">
+            <label className="label">Password</label>
+            <div className="control">
+                <input
+                className="input"
+                type="password"
+                placeholder="password"
+                name="password"
+                required
+                onChange={(event) => setPassword(event.target.value)}
+                value={password}
+                />
+            </div>
+            </div>
+
+            <div className="field">
+            <label className="label">Email</label>
+            <div className="control">
+                <input
+                className="input"
+                type="text"
+                placeholder="email"
+                name="email"
+                required
+                onChange={(event) => setEmail(event.target.value)}
+                value={email}
+                />
+            </div>
+            </div>
+            <div className="field">
+            <div
+                className="control"
+                style={{ display: "flex", justifyContent: "center" }}
+            >
+                <button type="submit" className="button custom-button">
+                sign up
+                </button>
+            </div>
+            </div>
         </form>
+        </div>
     </div>
-    )
+    );
 }
 
-export default SignUp
+export default SignUp;

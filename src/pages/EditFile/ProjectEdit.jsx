@@ -15,7 +15,7 @@ function ProjectEdit() {
     const navigate = useNavigate()
 
     async function getCurrentProjectData() {
-        const response = await authorizedRequest('get', `projects/${id}/`)
+        const response = await authorizedRequest('get', `/projects/${id}/`)
         setProjectData(response.data)
     }
 
@@ -25,7 +25,7 @@ function ProjectEdit() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        const response = await authorizedRequest('patch', `projects/${id}/`, projectData)
+        const response = await authorizedRequest('patch', `/projects/${id}/`, projectData)
 
         navigate(`/portfolio/${id}`)
     }
@@ -34,18 +34,20 @@ function ProjectEdit() {
     }
     
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            <h2>Edit your Project</h2>
+        <div className="container" style={{ maxWidth: "550px", marginTop: "90px" }}>
+        <div className="form-box">
+        <h1 className="title is-4 has-text-centered">Edit your Project</h1>
+        <form onSubmit={handleSubmit}>
+        <div className="field">
             <ProjectForm
                 projectData={projectData}
                 setProjectData={setProjectData}
                 handleSubmit={handleSubmit}
             />
-            <button type="submit">Save</button>
-            <button type='button' onClick={handleDelete}>Delete</button>
-            </form>
-        </div>
+            <button type="submit" className="button custom-button">Save</button>
+            <button type='button' onClick={handleDelete} className="button custom-button">Delete</button>
+        </div>  </form>
+        </div></div>
     )
 }
 export default ProjectEdit

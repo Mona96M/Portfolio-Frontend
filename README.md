@@ -1,12 +1,47 @@
-# React + Vite
+# Personal Portfolio Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The frontend of the Personal Portfolio Builder is built with React.js. It provides a user-friendly interface where users can log in, enter their personal, educational, skills, and project information, and view their portfolio. It includes features like protected routes, form validation, and toast notifications for a smooth user experience. The frontend communicates with the backend through API calls using Axios.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React.js.
+- Axios.
+- React Router .
+- Toast Notifications .
+
+
+
+## Backend Repo Link
+
+https://git.generalassemb.ly/mona96m/Portfolio-Backend
+
+## Installation Instructions as Needed
+
+### Install npm
+```npm install```
+### Run server
+```npm run dev```
+
+## Wireframes for the main pages
+
+![alt text](./src/assets/README_assets/wirefram00.png)
+
+## Screenshots of the app
+![alt text](./src/assets/README_assets/form1.png)
+![alt text](./src/assets/README_assets/add.png)
+![alt text](./src/assets/README_assets/update.png)
+
+
+## Icebox Features
+
+- **Download Portfolio Button**
+Add a button for users to download their portfolio as a PDF.
+
+- **Cover Letter Form**
+Add a simple form for users to write and update a cover letter.
+
+

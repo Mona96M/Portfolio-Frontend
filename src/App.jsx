@@ -15,24 +15,26 @@ import AddEducation from './pages/AddNew/AddEducation'
 import AddSkill from './pages/AddNew/AddSkill'
 import AddProject from './pages/AddNew/AddProject'
 import SignUp from './pages/SignUp'
+import ProtectedRoute from './components/auth/ProtectedRoute'
+
 function App() {
     return (
     <Router>
-        <NavBar/>
+        <NavBar />
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/signup' element={<SignUp />} />
             <Route path='/login' element={<Login/>}/>
-            <Route path='/portfolio/add' element={<PortofolioAdd/>} />
-            <Route path='/portfolio/:id' element={<PortfolioDetails/>} />
-            <Route path='/personalinfo/:id/edit' element={<PersonalInfoEdit/>} />
-            <Route path='/education/:id/edit' element={<EducationEdit/>} />
-            <Route path='/skill/:id/edit' element={<SkillEdit/>} />
-            <Route path='/project/:id/edit' element={<ProjectEdit/>} />
-            <Route path='/education/new' element={<AddEducation/>} />
-            <Route path='/skill/new' element={<AddSkill/>} />
-            <Route path='/project/new' element={<AddProject/>} />
-            <Route path='/confirm-delete/:type/:id' element={<ConfirmDelete/>} />
+            <Route path='/portfolio/add'element={<ProtectedRoute><PortofolioAdd /></ProtectedRoute>}/>
+            <Route path='/portfolio/:personalId'element={<ProtectedRoute><PortfolioDetails /></ProtectedRoute>}/>
+            <Route path='/personalinfo/:id/edit' element={<ProtectedRoute><PersonalInfoEdit/></ProtectedRoute>} />
+            <Route path='/educations/:id/edit' element={<ProtectedRoute><EducationEdit/></ProtectedRoute>} />
+            <Route path='/skills/:id/edit' element={<ProtectedRoute><SkillEdit/></ProtectedRoute>} />
+            <Route path='/projects/:id/edit' element={<ProtectedRoute><ProjectEdit/></ProtectedRoute>} />
+            <Route path='/education/new' element={<ProtectedRoute><AddEducation/></ProtectedRoute>} />
+            <Route path='/skill/new' element={<ProtectedRoute><AddSkill/></ProtectedRoute>} />
+            <Route path='/project/new' element={<ProtectedRoute><AddProject/></ProtectedRoute>} />
+            <Route path='/confirm-delete/:type/:id' element={<ProtectedRoute><ConfirmDelete/></ProtectedRoute>} />
             <Route path='*' element={<NotFound/>} />
         </Routes>
     </Router>

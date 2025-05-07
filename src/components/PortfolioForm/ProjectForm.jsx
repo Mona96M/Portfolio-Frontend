@@ -4,8 +4,9 @@ function ProjectForm(props) {
     return (
             <div>
                 <div>
-                <label htmlFor='project_name'>Project Name</label>
-                <input
+                <label htmlFor='project_name' className="label">Project Name</label>
+                <div className="control">
+                <input className="input"
                     id='project_name'
                     name='project_name'
                     required
@@ -15,10 +16,11 @@ function ProjectForm(props) {
                         project_name: event.target.value 
                     }))}
                 />
-                </div>
+                </div></div>
                 <div>
-                <label htmlFor='description'>Description</label>
-                <input 
+                <label htmlFor='description' className="label">Description</label>
+                <div className="control">
+                <input className="input"
                     id='description'
                     name='description'
                     required
@@ -28,20 +30,20 @@ function ProjectForm(props) {
                         description: event.target.value 
                     }))}
                 />
-                </div>
+                </div></div>
                 <div>
-                <label htmlFor='project_url'>URL</label>
-                <input 
+                <label htmlFor='project_url' className="label">URL of Project</label>
+                <div className="control">
+                <input className="input"
                     id='project_url'
                     name='project_url'
-                    required
                     value={props.projectData.project_url}
                     onChange={(event) => props.setProjectData(prev => ({
                         ...prev, 
                         project_url: event.target.value 
                     }))}
                 />
-                </div>
+                </div></div>
             </div>
     )
 }

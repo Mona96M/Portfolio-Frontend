@@ -1,31 +1,28 @@
 import React from 'react'
 
 import { useState , useEffect} from 'react'
-import { useParams , useNavigate, Link} from 'react-router'
+import {Link} from 'react-router'
 
 // import axios from 'axios'
-import { authorizedRequest } from '../lib/api'
+import { authorizedRequest } from '../../lib/api'
+
 function ProjectDetails() {
-    const { id } = useParams()
+    
     const [project, setProject] = useState(null)
     const [errorMsg, setErrorMsg] = useState('')
-    const navigate = useNavigate()
+
     async function getSingleData() {
         try {
-            const response = await authorizedRequest('get', `/projects/${id}`)
+            const response = await authorizedRequest('get', '/projects/')
             setProject(response.data)
         } catch (err) {
             console.log(err)
-            if (err.status === 404) {
-                navigate('/not-found')
-            } else {
-                setErrorMsg('Somethig went Wrong!')
-            }
+            setErrorMsg('Access denied: this skill entry does not belong to you.')
         }
     }
     useEffect(() => {
         getSingleData()
-        console.log(id)
+
     }, [])
 
     if (errorMsg) return <h1>{errorMsg}</h1>
@@ -33,12 +30,21 @@ function ProjectDetails() {
 
     return (
         <div>
-            <h2>Projects</h2>
-            <Link to={`/project/${project.id}/edit`}>
-            <h4>{project.project_name}</h4></Link>
-            <h4>{project.description}</h4>
-            <h4>{project.project_url}</h4>
-        </div>
+        <ul>
+        <h2 className="title is-4 has-text-left">Projects</h2>
+
+            {project.map(projects => {
+                return(
+                <li key={projects.id}>
+                <Link to={`/projects/${projects.id}/edit`}>
+                <p className="has-text-left">{projects.project_name}</p>
+                <p className="has-text-left">{projects.description}</p>
+                <p className="has-text-left">{projects.project_url}</p><br/>
+                </Link>
+                </li>)
+                })}
+            </ul>
+    </div>
     )
 }
 export default ProjectDetails

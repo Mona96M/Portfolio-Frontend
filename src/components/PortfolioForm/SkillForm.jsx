@@ -4,8 +4,9 @@ function SkillForm(props) {
     return (
             <div>
                 <div>
-                <label htmlFor='name_of_skill'>Name of Skill</label>
-                <input
+                <label htmlFor='name_of_skill'  className="label">Name of Skill</label>
+                <div className="control">
+                <input className="input"
                     id='name_of_skill'
                     name='name_of_skill'
                     required
@@ -15,7 +16,7 @@ function SkillForm(props) {
                         name_of_skill: event.target.value 
                     }))}
                 />
-                </div>
+                </div></div>
             </div>
     )
 }

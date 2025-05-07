@@ -8,30 +8,33 @@ import ProjectForm from '../../components/PortfolioForm/ProjectForm'
 
 
 function AddProject() {
+    const userId = localStorage.getItem('user_id')
     const navigate = useNavigate()
     const [projectData, setProjectData] = useState({
             project_name: '',
             description: '',
-            project_url: 'https://github.com/'
+            project_url: ''
         })
     async function handleSubmit(event){
         event.preventDefault();
-        const response = await authorizedRequest('post', 'projects/', projectData)
+        const response = await authorizedRequest('post', '/projects/', projectData)
         console.log(response)
         
-        navigate('/')
+        navigate(`/portfolio/${userId}`) 
     }
     return (
-    <div>
+        <div className="container" style={{ maxWidth: "550px", marginTop: "90px" }}>
+        <div className="form-box">
+        <h1 className="title is-4 has-text-centered">Add a New Project</h1>
         <form onSubmit={handleSubmit}>
-        <h1>Add a New Project</h1>
+        <div className="field">
         <ProjectForm
             projectData={projectData}
             setProjectData={setProjectData}
         />
-        <button type='submit'>Create</button>
-        </form>
-    </div>
+        <button type='submit' className="button custom-button">Create</button>
+        </div> </form>
+    </div></div>
     ) 
 }
 

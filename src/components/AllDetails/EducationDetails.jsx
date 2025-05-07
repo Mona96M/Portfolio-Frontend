@@ -1,45 +1,51 @@
 import React from 'react'
 
 import { useState , useEffect} from 'react'
-import { useParams,useNavigate,Link } from 'react-router'
+import { Link } from 'react-router'
 
 // import axios from 'axios'
-import { authorizedRequest } from '../lib/api'
+import { authorizedRequest } from '../../lib/api'
+
 function EducationDetails() {
-    const { id } = useParams()
-    const [education, setEducation] = useState(null)
+
+    const [education, setEducation] = useState([])
     const [errorMsg, setErrorMsg] = useState('')
-    const navigate = useNavigate()
-    async function getSingleData() {
+    
+    async function getUserData() {
+        
         
         try {
-            const response = await authorizedRequest('get', `/educations/${id}`)
+            const response = await authorizedRequest('get', '/educations/')
+            console.log("Education Response Data:", response.data)
             setEducation(response.data)
+
         } catch (err) {
             console.log(err)
-            if (err.status === 404) {
-                navigate('/not-found')
-            } else {
-                setErrorMsg('Somethig went Wrong!')
-            }
+            setErrorMsg('Access denied: this skill entry does not belong to you.')
         }
     }
 
     useEffect(() => {
-        getSingleData()
-        console.log(id)
+        getUserData()
     }, [])
     
     if (errorMsg) return <h1>{errorMsg}</h1>
     if (!education) return <h4>Loading your Education details...</h4>
 
     return (
-        <div>
-            <h2>Education</h2>
-            <Link to={`/education/${education.id}/edit`}>
-            <h4>{education.university}</h4></Link>
-            <h4>{education.major}</h4>
-        </div>
+        <>
+        <h3 className="title is-4 has-text-left">Education</h3>
+        <ul>
+            {education.map(educations => {
+                return (
+                    <li 
+                    key={educations.id}><Link to={`/educations/${educations.id}/edit`}>
+                    <p className="has-text-left">{educations.university}</p>
+                    <p className="has-text-left">{educations.major}</p>
+                    </Link><br/></li>
+                    ) 
+                })}
+            </ul></>
     )
 }
 

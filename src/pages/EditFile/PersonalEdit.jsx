@@ -16,7 +16,7 @@ function PersonalInfoEdit() {
     const navigate = useNavigate()
 
     async function getCurrentPersonalData() {
-        const response = await authorizedRequest('get', `personalinfo/${id}/`)
+        const response = await authorizedRequest('get', `/personalinfo/${id}/`)
         setPersonalData(response.data)
     }
 
@@ -26,7 +26,7 @@ function PersonalInfoEdit() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        const response = await authorizedRequest('patch', `personalinfo/${id}/`, personalData)
+        const response = await authorizedRequest('patch', `/personalinfo/${id}/`, personalData)
         
         navigate(`/portfolio/${id}`)
     }
@@ -35,18 +35,19 @@ function PersonalInfoEdit() {
     }
     
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            <h2>Edit your Personal</h2>
+        <div className="container" style={{ maxWidth: "550px", marginTop: "90px" }}>
+        <div className="form-box">
+        <h1 className="title is-4 has-text-centered">Edit your Information</h1>
+        <form onSubmit={handleSubmit}>
+        <div className="field">
             <PersonalInfoForm
                 personalData={personalData}
                 setPersonalData={setPersonalData}
                 handleSubmit={handleSubmit}
             />
-            <button type="submit">Save</button>
-            <button type='button' onClick={handleDelete}>Delete</button>
-            </form>
-        </div>
+            <button type="submit" className="button custom-button">Save</button>
+        </div>  </form>
+        </div></div>
     )
 }
 

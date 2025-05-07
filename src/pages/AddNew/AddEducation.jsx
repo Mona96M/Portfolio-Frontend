@@ -8,6 +8,7 @@ import EducationForm from '../../components/PortfolioForm/EducationForm'
 
 
 function AddEducation() {
+    const userId = localStorage.getItem('user_id')
     const navigate = useNavigate()
     const [educationData, setEducationData] = useState ({
             university:'',
@@ -15,22 +16,23 @@ function AddEducation() {
         })
     async function handleSubmit(event){
         event.preventDefault();
-        const response = await authorizedRequest('post', 'educations/', educationData)
+        const response = await authorizedRequest('post', '/educations/', educationData)
         console.log("Added:", response.data)
-        
-        navigate('/')
+        navigate(`/portfolio/${userId}`) 
     }
     return (
-    <div>
+        <div className="container" style={{ maxWidth: "550px", marginTop: "90px" }}>
+        <div className="form-box">
+        <h1 className="title is-4 has-text-centered">Add a New Education</h1>
         <form onSubmit={handleSubmit}>
-        <h1>Add a New Education</h1>
+        <div className="field">
         <EducationForm
             educationData={educationData}
             setEducationData={setEducationData}
         />
-        <button type='submit'>Create</button>
-        </form>
-    </div>
+        <button type='submit' className="button custom-button">Create</button>
+        </div> </form>
+    </div></div>
     ) 
 }
 

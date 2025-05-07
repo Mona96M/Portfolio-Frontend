@@ -1,43 +1,46 @@
 import React from 'react'
 
 import { useState , useEffect} from 'react'
-import { useParams ,useNavigate, Link} from 'react-router'
+import {Link} from 'react-router'
 
 // import axios from 'axios'
-import { authorizedRequest } from '../lib/api'
+import { authorizedRequest } from '../../lib/api'
+
 function SkillDetails() {
-    const { id } = useParams()
-    const [skill, setSkill] = useState(null)
+    const [skills, setSkill] = useState([])
     const [errorMsg, setErrorMsg] = useState('')
-    const navigate = useNavigate()
-    async function getSingleData() {
+    
+    async function getUserData() {
         try {
-            const response = await authorizedRequest('get', `/skills/${id}`)
+            const response = await authorizedRequest('get', '/skills/')
             setSkill(response.data)
         } catch (err) {
             console.log(err)
-            if (err.status === 404) {
-                navigate('/not-found')
-            } else {
-                setErrorMsg('Somethig went Wrong!')
-            }
+            setErrorMsg('Access denied: this skill entry does not belong to you.')
         }
     }
     useEffect(() => {
-        getSingleData()
-        console.log(id)
+        getUserData()
     }, [])
 
     if (errorMsg) return <h1>{errorMsg}</h1>
-    if (!skill) return <h4>Loading your Skill details...</h4>
+    if (!skills) return <h4>Loading your Skill details...</h4>
 
     return (
         <div>
-            
-            <h2>Skills</h2>
-            <Link to={`/skill/${skill.id}/edit`}>
-            <h4>{skill.name_of_skill}</h4></Link>
-        </div>
+        <ul>
+        <h2 className="title is-4 has-text-left">Skills</h2>
+
+            {skills.map(skill => {
+                return(
+                    <li key={skill.id}>
+                    <Link to={`/skills/${skill.id}/edit`}>
+                    <p className="has-text-left">{skill.name_of_skill}</p>
+                    </Link><br/>
+                        </li>)
+                })}
+            </ul>
+    </div>
     )
 }
 export default SkillDetails

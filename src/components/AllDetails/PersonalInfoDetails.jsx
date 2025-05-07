@@ -1,33 +1,31 @@
 import React from 'react'
 
 import { useState , useEffect} from 'react'
-import { useParams,useNavigate, Link } from 'react-router'
+import { Link } from 'react-router'
 
 // import axios from 'axios'
-import { authorizedRequest } from '../lib/api'
+import { authorizedRequest } from '../../lib/api'
+
 function PersonalInfoDetails() {
-    const { id } = useParams()
-    const [personal, setPersonal] = useState(null)
+
+    const [personal, setPersonal] = useState([])
     const [errorMsg, setErrorMsg] = useState('')
-    const navigate = useNavigate()
-    async function getSingleData() {
+    
+    async function getUserData() {
         
         try {
-            const response = await authorizedRequest('get', `/personalinfo/${id}`)
+            const response = await authorizedRequest('get', '/personalinfo/')
             setPersonal(response.data)
+
         } catch (err) {
             console.log(err)
-            if (err.status === 404) {
-                navigate('/not-found')
-            } else {
-                setErrorMsg('Somethig went Wrong!')
-            }
+            setErrorMsg('Access denied: this skill entry does not belong to you.')
         }
     }
 
     useEffect(() => {
-        getSingleData()
-        console.log(id)
+        getUserData()
+        console.log()
     }, [])
 
 
@@ -36,13 +34,21 @@ function PersonalInfoDetails() {
 
     return (
         <div>
-            <Link to={`/personalinfo/${personal.id}/edit`}>
-            <h2>Personal information</h2>
-            </Link>
-            <h2>{personal.full_name}</h2>
-            <h4>{personal.phone}</h4>
-            <h4>{personal.linkedin}</h4>
-            <h4>{personal.bio}</h4>
+            <ul>
+            
+
+                {personal.map(personalInf => {
+                    return (
+                        <li key={personalInf.id}>
+                            <Link to={`/personalinfo/${personalInf.id}/edit`}>
+                            <h2 className="title is-3 has-text-left">{personalInf.full_name}</h2>
+                            <p className="has-text-left">{personalInf.phone}</p>
+                            <p className="has-text-left">{personalInf.linkedin}</p>
+                            <p className="has-text-left">{personalInf.bio}</p></Link><br/>
+                        </li>
+                    )
+                })}
+            </ul>
         </div>
     )
 }

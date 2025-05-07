@@ -4,8 +4,9 @@ function EducationForm(props) {
     return (
             <div>
                 <div>
-                <label htmlFor='university'>University</label>
-                <input
+                <label htmlFor='university' className="label">University</label>
+                <div className="control">
+                <input className="input"
                     id='university'
                     name='university'
                     required
@@ -15,10 +16,11 @@ function EducationForm(props) {
                         university: event.target.value 
                     }))}
                 />
-                </div>
+                </div></div>
                 <div>
-                <label htmlFor='major'>Major</label>
-                <input 
+                <label htmlFor='major' className="label">Major</label>
+                <div className="control">
+                <input className="input"
                     id='major'
                     name='major'
                     required
@@ -28,7 +30,7 @@ function EducationForm(props) {
                         major: event.target.value 
                     }))}
                 />
-                </div>
+                </div></div>
             </div>
     )
 }

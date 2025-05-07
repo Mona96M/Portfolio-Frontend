@@ -8,27 +8,30 @@ import SkillForm from '../../components/PortfolioForm/SkillForm'
 
 
 function AddSkill() {
+    const userId = localStorage.getItem('user_id')
     const navigate = useNavigate()
     const [skillData, setSkillData] = useState ({
             name_of_skill:''
         })
     async function handleSubmit(event){
         event.preventDefault();
-        const response = await authorizedRequest('post', 'skills/', skillData)
+        const response = await authorizedRequest('post', '/skills/', skillData)
         console.log(response)
-        navigate('/')
+        navigate(`/portfolio/${userId}`) 
     }
     return (
-    <div>
+        <div className="container" style={{ maxWidth: "550px", marginTop: "90px" }}>
+        <div className="form-box">
+        <h1 className="title is-4 has-text-centered">Add a New Skill</h1>
         <form onSubmit={handleSubmit}>
-        <h1>Add a New Skill</h1>
+        <div className="field">
         <SkillForm
             skillData={skillData}
             setSkillData={setSkillData}
         />
-        <button type='submit'>Create</button>
-        </form>
-    </div>
+        <button type='submit' className="button custom-button">Create</button>
+        </div></form>
+    </div></div>
     ) 
 }
 

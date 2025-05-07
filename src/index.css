@@ -1,10 +1,14 @@
+/* I searched these sources for margin in nav and also shadows etc. i want more details like color and font
+https://www.w3schools.com/
+https://medium.com/ */
+
 :root {
-  font-family:'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #243b68;
+  color: #243b68!important;
   background-color: #ffffff;
 
   font-synthesis: none;
@@ -12,7 +16,35 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.title,
+.label {
+  color: #243b68 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #1854ca;
+}
 
+input,
+textarea{
+  background-color: white !important;
+  color: #243b68 !important;
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  border-color: #F45A84 !important;
+  font-family: 'Poppins', sans-serif;
+  margin-right: 10px;
+}
+.form-box {
+  border: 2px solid #243b68;
+  padding: 3rem;
+  border-radius: 6px;
+  background-color: white;
+  margin-bottom: 40px;
+}
 a {
   font-weight: 500;
   color: #243b68;
@@ -21,42 +53,52 @@ a {
 a:hover {
   color: #F45A84;
 }
-button{
+.custom-button {
   border-radius: 35px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 25px 30px;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
+  font-family: 'Poppins', sans-serif;
   background-color: #F45A84;
   cursor: pointer;
   transition: border-color 0.25s;
   color: #ffffff;
   margin-top: 30px;
 }
-button:hover{
+
+.custom-button:hover {
   color: #F45A84;
   background-color: #ffffff;
   border-color: #F45A84;
 }
+.navbar .navbar-item,
+.navbar .navbar-item .buttons .NavLink{
+  color: #ffffff !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: bold !important;
+  margin-right: 40px !important;
+}
+.navbar .navbar-item .buttons .NavLink:hover{
+  color: #F45A84 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: bold !important;
+}
+
 nav{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 160px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 20px 140px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  background-color: #243b68 !important;
 
   
-}
-.NavLink {
-  display: flex;
-  gap: 40px;
-  align-items: center;
 }
 .button-link{
   border-radius: 35px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 10px 20px;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -72,16 +114,26 @@ nav{
   border-color: #F45A84;
 }
 .content{
-  margin: auto;
-  width: 70%;
-  padding: 50px;
+  margin: auto !important;
+  width: 70% !important;
+  padding: 50px !important;
+  
 }
 .content h1{
   font-size: 60px;
-  margin-bottom: 2px;
+  margin-bottom: 30px  !important;
+  margin-top: 90px;
+  font-weight: 600  !important;
+  color: #243b68 !important;
+  font-family: 'Poppins', sans-serif;
 }
 .content p {
   color: #a7b4cc;
   font-size: 16px;
   font-family:'Inter', sans-serif;
+}
+h5{
+  font-size: 30px;
+  color: #7998d4 !important;
+  font-family: 'Poppins', sans-serif;
 }

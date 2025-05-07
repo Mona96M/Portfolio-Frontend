@@ -13,7 +13,7 @@ function SkillEdit() {
     const navigate = useNavigate()
 
     async function getCurrentSkillData() {
-        const response = await authorizedRequest('get', `skills/${id}/`)
+        const response = await authorizedRequest('get', `/skills/${id}/`)
         setSkillData(response.data)
     }
 
@@ -23,7 +23,7 @@ function SkillEdit() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        const response = await authorizedRequest('patch', `skills/${id}/`, skillData)
+        const response = await authorizedRequest('patch', `/skills/${id}/`, skillData)
 
         navigate(`/portfolio/${id}`)
     }
@@ -33,18 +33,20 @@ function SkillEdit() {
     }
     
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            <h2>Edit your Skill</h2>
+        <div className="container" style={{ maxWidth: "550px", marginTop: "90px" }}>
+        <div className="form-box">
+        <h1 className="title is-4 has-text-centered">Edit your Skill</h1>
+        <form onSubmit={handleSubmit}>
+        <div className="field">
             <SkillForm
                 skillData={skillData}
                 setSkillData={setSkillData}
                 handleSubmit={handleSubmit}
             />
-            <button type="submit">Save</button>
-            <button type='button' onClick={handleDelete}>Delete</button>
-            </form>
-        </div>
+            <button type="submit"  className="button custom-button">Save</button>
+            <button type='button' onClick={handleDelete}  className="button custom-button">Delete</button>
+        </div> </form>
+        </div></div>
     )
 }
 export default SkillEdit
