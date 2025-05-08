@@ -4,7 +4,7 @@ function EducationForm(props) {
     return (
             <div>
                 <div>
-                <label htmlFor='university' className="label">University</label>
+                <label htmlFor='university' className="label">University<span style={{color:'red'}}>*</span></label>
                 <div className="control">
                 <input className="input"
                     id='university'
@@ -18,7 +18,7 @@ function EducationForm(props) {
                 />
                 </div></div>
                 <div>
-                <label htmlFor='major' className="label">Major</label>
+                <label htmlFor='major' className="label">Major<span style={{color:'red'}}>*</span></label>
                 <div className="control">
                 <input className="input"
                     id='major'

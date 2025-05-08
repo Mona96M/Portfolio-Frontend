@@ -24,7 +24,8 @@ function SignUp() {
         setTokens(response.data);
         navigate("/portfolio/add");
     } catch (err) {
-        console.log(err);
+        console.log(err)
+        
     }
     }
 
@@ -37,7 +38,7 @@ function SignUp() {
         <h1 className="title is-4 has-text-centered">SignUp</h1>
         <form onSubmit={handleSubmit}>
             <div className="field">
-            <label className="label">Username</label>
+            <label className="label">Username<span style={{color:'red'}}>*</span></label>
             <div className="control">
                 <input
                 className="input"
@@ -51,7 +52,7 @@ function SignUp() {
             </div>
             </div>
             <div className="field">
-            <label className="label">Password</label>
+            <label className="label">Password<span style={{color:'red'}}>*</span></label>
             <div className="control">
                 <input
                 className="input"
@@ -61,12 +62,15 @@ function SignUp() {
                 required
                 onChange={(event) => setPassword(event.target.value)}
                 value={password}
+                
                 />
+                <p style={{fontSize: '12px' , color:'gray'}}>must have 8-16 characters </p>
+                <p style={{fontSize: '12px' , color:'gray'}}>must have one special characters @,#,%,$ </p>
             </div>
             </div>
 
             <div className="field">
-            <label className="label">Email</label>
+            <label className="label">Email<span style={{color:'red'}}>*</span></label>
             <div className="control">
                 <input
                 className="input"

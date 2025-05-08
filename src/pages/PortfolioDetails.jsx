@@ -7,7 +7,7 @@ import 'react-toastify'
 function PortfolioDetails() {
     
     return (
-        <div className="container" style={{ maxWidth: "550px", marginTop: "50px" }}>
+        <div className="container" style={{ maxWidth: "750px", marginTop: "50px" }}>
         <div className="form-box">
         <PersonalInfoDetails/>
         <EducationDetails />

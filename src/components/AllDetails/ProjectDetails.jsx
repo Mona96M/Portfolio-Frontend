@@ -30,7 +30,7 @@ function ProjectDetails() {
 
     return (
         <div>
-        <ul>
+        <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
         <h2 className="title is-4 has-text-left">Projects</h2>
 
             {project.map(projects => {

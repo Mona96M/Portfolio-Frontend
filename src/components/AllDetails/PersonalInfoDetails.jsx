@@ -43,7 +43,7 @@ function PersonalInfoDetails() {
                             <Link to={`/personalinfo/${personalInf.id}/edit`}>
                             <h2 className="title is-3 has-text-left">{personalInf.full_name}</h2>
                             <p className="has-text-left">{personalInf.phone}</p>
-                            <p className="has-text-left">{personalInf.linkedin}</p>
+                            <p className="has-text-left">{personalInf.linkedin}</p><br/>
                             <p className="has-text-left">{personalInf.bio}</p></Link><br/>
                         </li>
                     )

@@ -28,7 +28,7 @@ function SkillDetails() {
 
     return (
         <div>
-        <ul>
+        <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
         <h2 className="title is-4 has-text-left">Skills</h2>
 
             {skills.map(skill => {

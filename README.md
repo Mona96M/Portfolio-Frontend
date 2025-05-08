@@ -32,6 +32,7 @@ https://git.generalassemb.ly/mona96m/Portfolio-Backend
 
 ## Screenshots of the app
 ![alt text](./src/assets/README_assets/form1.png)
+![alt text](./src/assets/README_assets/cv.png)
 ![alt text](./src/assets/README_assets/add.png)
 ![alt text](./src/assets/README_assets/update.png)
 

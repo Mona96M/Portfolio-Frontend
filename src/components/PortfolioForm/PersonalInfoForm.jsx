@@ -4,7 +4,7 @@ function PersonalInfoForm(props) {
     return (
     <div>
         <div>
-        <label htmlFor="full_name" className="label">Full name</label>
+        <label htmlFor="full_name" className="label">Full name<span style={{color:'red'}}>*</span></label>
         <div className="control">
         <input className="input"
             id="full_name"
@@ -20,7 +20,7 @@ function PersonalInfoForm(props) {
         /></div>
         </div>
         <div>
-        <label htmlFor="phone" className="label">Phone Number</label>
+        <label htmlFor="phone" className="label">Phone Number<span style={{color:'red'}}>*</span></label>
         <div className="control">
         <input className="input"
             id="phone"
@@ -36,7 +36,7 @@ function PersonalInfoForm(props) {
         />
         </div></div>
         <div>
-        <label htmlFor="linkedin" className="label">Linkedin</label>
+        <label htmlFor="linkedin" className="label">Linkedin (optional)</label>
         <div className="control">
         <input className="input"
             id="linkedin"
@@ -51,7 +51,7 @@ function PersonalInfoForm(props) {
         />
         </div></div>
         <div>
-        <label htmlFor="bio" className="label">About me</label>
+        <label htmlFor="bio" className="label">About me<span style={{color:'red'}}>*</span></label>
         <div className="control">
         <textarea className="textarea"
             id="bio"

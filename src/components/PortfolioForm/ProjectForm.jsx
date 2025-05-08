@@ -4,7 +4,7 @@ function ProjectForm(props) {
     return (
             <div>
                 <div>
-                <label htmlFor='project_name' className="label">Project Name</label>
+                <label htmlFor='project_name' className="label">Project Name<span style={{color:'red'}}>*</span></label>
                 <div className="control">
                 <input className="input"
                     id='project_name'
@@ -18,7 +18,7 @@ function ProjectForm(props) {
                 />
                 </div></div>
                 <div>
-                <label htmlFor='description' className="label">Description</label>
+                <label htmlFor='description' className="label">Description<span style={{color:'red'}}>*</span></label>
                 <div className="control">
                 <input className="input"
                     id='description'
@@ -32,7 +32,7 @@ function ProjectForm(props) {
                 />
                 </div></div>
                 <div>
-                <label htmlFor='project_url' className="label">URL of Project</label>
+                <label htmlFor='project_url' className="label">URL of Project (optional)</label>
                 <div className="control">
                 <input className="input"
                     id='project_url'

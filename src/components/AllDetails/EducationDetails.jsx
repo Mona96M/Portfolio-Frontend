@@ -35,7 +35,7 @@ function EducationDetails() {
     return (
         <>
         <h3 className="title is-4 has-text-left">Education</h3>
-        <ul>
+        <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
             {education.map(educations => {
                 return (
                     <li 

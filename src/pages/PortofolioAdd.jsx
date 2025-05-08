@@ -38,6 +38,8 @@ function PortofolioAdd() {
     // This is my first time handling multiple API endpoints in a single submission.
     // After researching I implemented this solution using axios and await
        //I read about Promise.all I will try it after the bootcamp
+        
+        
         try {
             const personalResponse = await authorizedRequest('post', '/personalinfo/', personalData)
             const personalId = personalResponse.data.id;
@@ -78,7 +80,7 @@ function PortofolioAdd() {
     
     return (
         
-        <div className="container" style={{ maxWidth: "550px", marginTop: "90px" }}>
+        <div className="container" style={{ maxWidth: "650px", marginTop: "90px" }}>
         <div className="form-box">
         <h1 className="title is-4 has-text-centered">Fill out the form</h1>
         <form onSubmit={handleSubmit}>

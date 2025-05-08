@@ -1,7 +1,11 @@
 /* I searched these sources for margin in nav and also shadows etc. i want more details like color and font
 https://www.w3schools.com/
 https://medium.com/ */
-
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #243b68 !important;
+}
 :root {
   font-family: 'Poppins', sans-serif !important;
   line-height: 1.5;
@@ -32,7 +36,11 @@ textarea{
   color: #243b68 !important;
   font-family: 'Poppins', sans-serif;
 }
-
+input:focus,
+textarea:focus {
+  background-color: white !important;
+  outline: none!important
+}
 button {
   border-color: #F45A84 !important;
   font-family: 'Poppins', sans-serif;
@@ -115,7 +123,7 @@ nav{
 }
 .content{
   margin: auto !important;
-  width: 70% !important;
+  width: 90px !important;
   padding: 50px !important;
   
 }
