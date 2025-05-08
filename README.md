@@ -31,9 +31,13 @@ https://git.generalassemb.ly/mona96m/Portfolio-Backend
 ![alt text](./src/assets/README_assets/wirefram00.png)
 
 ## Screenshots of the app
+### Data filling form
 ![alt text](./src/assets/README_assets/form1.png)
+### CV details
 ![alt text](./src/assets/README_assets/cv.png)
+### Add a New item
 ![alt text](./src/assets/README_assets/add.png)
+### Update and Delete item
 ![alt text](./src/assets/README_assets/update.png)
 
 
