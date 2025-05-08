@@ -9,8 +9,9 @@ The frontend of the Personal Portfolio Builder is built with React.js. It provid
 ## Tech Stack
 
 - React.js.
-- Axios.
 - React Router .
+- React Hooks (useState, useEffect)
+- Axios.
 - Toast Notifications .
 
 
@@ -33,6 +34,7 @@ https://git.generalassemb.ly/mona96m/Portfolio-Backend
 ## Screenshots of the app
 ### Data filling form
 ![alt text](./src/assets/README_assets/form1.png)
+<<<<<<< HEAD
 ### CV details
 ![alt text](./src/assets/README_assets/cv.png)
 ### Add a New item
