@@ -18,7 +18,7 @@ The frontend of the Personal Portfolio Builder is built with React.js. It provid
 
 ## Backend Repo Link
 
-https://git.generalassemb.ly/mona96m/Portfolio-Backend
+https://github.com/Mona96M/Portfolio-Backend
 
 ## Installation Instructions as Needed
 
